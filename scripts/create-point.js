@@ -20,16 +20,16 @@ function getCities(event) {
     const indexOfSelectedState = event.target.selectedIndex;
     stateInput.value = event.target.options[indexOfSelectedState].text;
 
+    const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufvalue}/municipios`;
+
     citySelect.innerHTML = "<option value > selecione a cidade </option> " // mudo o seletor para evitar bugs.
     citySelect.disabled = true; // tirando bug das cidades que ficavam ao selecionar outra.
 
-    const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufvalue}/municipios`;
-
-    fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
+    fetch(url)
         .then(res => res.json()) // transformando a response em json
         .then(cities => { // usando tirando os dados do json
             for (const city of cities) { // for para preencher o form de option 
-                citySelect.innerHTML += `<option value ="${city.id}"> ${city.nome} </option>`
+                citySelect.innerHTML += `<option value ="${city.nome}"> ${city.nome} </option>`
             }
             citySelect.disabled = false; // alterando para deixar o seletor de cidades habilitado   
         })
