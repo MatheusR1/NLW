@@ -20,6 +20,8 @@ function getCities(event) {
     const indexOfSelectedState = event.target.selectedIndex;
     stateInput.value = event.target.options[indexOfSelectedState].text;
 
+    citySelect.innerHTML = "<option value > selecione a cidade </option> " // mudo o seletor para evitar bugs.
+    citySelect.disabled = true; // tirando bug das cidades que ficavam ao selecionar outra.
 
     const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufvalue}/municipios`;
 
