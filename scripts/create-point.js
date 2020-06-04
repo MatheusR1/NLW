@@ -9,6 +9,7 @@ function populatesUFs() {
             }
         })
 }
+
 populatesUFs();
 
 function getCities(event) {
@@ -40,3 +41,46 @@ function getCities(event) {
 document
     .querySelector("select[name=uf]")
     .addEventListener("change", getCities);
+
+
+//=======================================API IBGE================================================================
+
+// click nos intens de coleta, cria class para diferenciar dos itens selecionados, funcional visualmente. 
+
+const itemsToCollect = document.querySelectorAll(".items-grid li");
+
+for (const item of itemsToCollect) {
+    item.addEventListener("click", hundleSelectedItem);
+};
+
+
+const collectedItems = document.querySelector("input[name=items]");
+
+let selectedItems = [];
+
+function hundleSelectedItem(event) {
+    const itemLi = event.target;
+
+    itemLi.classList.toggle("selected"); // adiciona class as tags de li no html
+
+    const itemId = itemLi.dataset.id;
+
+    //verificar se existem itens selecionados, se sim
+    // pegar items selecionados.
+    const alreadySelected = selectedItems.findIndex(item => item == itemId); // função nativa que retorna a posição do item  se true ou -1 se false. 
+
+    //se já estiver selecionado tirar da seleção 
+    if (alreadySelected >= 0) {
+        const filteredItems = selectedItems.filter(item => item != itemId);
+        selectedItems = filteredItems; // sobrescrevo o array de intens selecionado com o de nao selecionados
+
+    } else {
+        //se nao estiver adicionado, adicionar a seleção
+        // adicionar a seleção
+        selectedItems.push(itemId);
+    }
+    console.log(selectedItems);
+
+    // atulizar o campo escontido com o items selecionados
+    collectedItems.value = selectedItems;
+}
