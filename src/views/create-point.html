@@ -23,13 +23,21 @@
                     <h2>dados da entidade</h2>
                 </legend>
 
-                <div class="field">
-                    <label for="name">Nome da entidade</label>
-                    <input type="text" name="name" id="" required="required">
+                <div class="field-group">
+                    <div class="field">
+                        <label for="name">Nome da entidade</label>
+                        <input type="text" name="name" id="" required="required">
+
+                    </div>
+                    <div class="field">
+                        <label for="name">Nome da entidade</label>
+                        <input type="url" name="name" id="" required="required">
+
+                    </div>
 
                 </div>
 
-                <div class="filed-group">
+                <div class="field-group">
                     <div class="field">
                         <label for="address">
                             Endereço
@@ -42,7 +50,7 @@
                         <input type="text" name="address2" required="required">
                     </div>
                 </div>
-                <div class="filed-group">
+                <div class="field-group">
                     <div class="field">
                         <label for="state">
                             Estado</label>
@@ -71,8 +79,11 @@
             </fieldset>
 
             <fieldset>
-                <h2>Itens de Coleta
-                </h2>
+                <legend>
+                    <h2>Itens de Coleta
+                    </h2>
+                    <span>Selecione um ou mais itens abaixo</span>
+                </legend>
 
                 <div class="items-grid">
                     <li data-id="1">
