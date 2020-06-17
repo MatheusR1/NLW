@@ -1,13 +1,20 @@
+
+
+body{
+    background-color: white;
+}
+
 /*pseudo elemto na pagina*/
 
 body::after {
     content: "";
     position: fixed;
-    background-color: white;
+    background-color: #f0f0f5;
     top: 230px;
     right: 0;
     left: 0;
     bottom: 0;
+    height: 16rem;
     z-index: -1;
     /*deixa o elemento atras da pagina*/
 }
@@ -45,6 +52,7 @@ body::after {
 main {
     margin: 48px;
 }
+
 
 main h4 {
     font-weight: normal;
