@@ -10,7 +10,7 @@ body::after {
     content: "";
     position: fixed;
     background-color: #f0f0f5;
-    top: 230px;
+    top: 0px;
     right: 0;
     left: 0;
     bottom: 0;
