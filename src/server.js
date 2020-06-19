@@ -110,4 +110,4 @@ server.get("/search", (req, res) => {
 })
 
 // estartando o servidor
-server.listen(3000);
+server.listen(process.env.PORT || 5000);
